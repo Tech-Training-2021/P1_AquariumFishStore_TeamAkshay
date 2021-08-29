@@ -25,16 +25,17 @@ insert into UserTable values(2,'Romila','romila@gmail.com','263876328763','65545
 insert into UserTable values(2,'Akshay','ak@gmail.com','1422434','8978567645');
 select * from UserTable;
 
-drop table Location;
-create table Location(
+
+drop table LocationTable;
+create table LocationTable(
 	Id int identity(1,1) primary key,
 	Branch varchar(50) not null
 );
 
-insert into Location(Branch) Values('Mumbai');
-insert into Location(Branch) Values('Delhi');
-insert into Location(Branch) Values('Bangalore');
-select * from Location;
+insert into LocationTable(Branch) Values('Mumbai');
+insert into LocationTable(Branch) Values('Delhi');
+insert into LocationTable(Branch) Values('Bangalore');
+select * from LocationTable;
 
 drop table ProductType;
 create table ProductType(
@@ -109,21 +110,19 @@ insert into ProductJunction(ProductId,ProductTypeId) Values(9,3);
 
 select * from ProductJunction;
 
-/*drop table OrderTable;
+drop table OrderTable;
 create table OrderTable(
 	Id int identity(1,1) primary key,
-	LocationId int foreign key references Location(Id) not null,
+	LocationId int foreign key references LocationTable(Id) not null,
 	UserId int foreign key references UserTable(UserId) not null,
 	ProductId int foreign key references Product(Id) not null,
 	Quantity int not null,
 	TotalPrice decimal not null
 );
 
-insert into OrderTable(LocationId,UserId,ProductId,Quantity,TotalPrice) Values(1,2,1,6,200);
-insert into OrderTable(LocationId,UserId,ProductId,Quantity,TotalPrice) Values(2,3,4,13,140);
-
-select * from OrderTable;*/
-
+insert into OrderTable Values(1,2,1,6,200);
+insert into OrderTable Values(2,3,4,13,140);
+select * from OrderTable;
 
 
 
